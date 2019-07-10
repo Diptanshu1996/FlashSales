@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FlashSalesApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if notice %>
+      <p class="alert alert-success notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger notice"><%= alert %></p>
+    <% end %>
+
+    <div class="container"
+      <%= yield %>
+    </div>
+  </body>
+</html>
+
+<script>
+  setTimeout("$('.notice').fadeOut('slow')", 2000)
+</script>

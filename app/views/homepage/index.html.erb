@@ -1,0 +1,32 @@
+<h1 class="h1">Deal Of The Day</h1>
+
+<% if @deal.present? %>
+
+  <div class="card mt-2" style="width:200px">
+    <h5 class="card-title text-center"><%= @deal.title %></h5>
+    <% if @deal.image.attached? %>
+        <%= image_tag @deal.image, class: "card-img-top" %>
+    <% end %>
+    <div class="card-body">
+      <p class="card-text small"><b>Description: </b><%= @deal.description %></p>
+      <p class="card-text small"><b>Price: </b><%= @deal.price %></p>
+      <p class="card-text small"><b>Discounted Price: </b>
+        <%=
+          @user_deal.present? ?
+          calc_discounted_price(@deal.discounted_price, @user_deal.quantity )
+          : @deal.discounted_price
+          %>
+      </p>
+      <p class="card-text small"><b>Deal Quantity: </b><%= @deal.quantity %></p>
+      <p>
+        <% if @deal.quantity.zero? %>
+          Out Of Stock
+        <% else %>
+          <%= link_to 'Buy Now', url_for(action: "handle_buy_now", deal_id: @deal.id), data: { confirm: "Are you sure?" }, class: "btn btn-block btn-success text-light" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+<% else %>
+  <p>No Deals To Display</p>
+<% end %>
