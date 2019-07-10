@@ -19,7 +19,7 @@ class HomepageController < ApplicationController
         if user_deal.save!
           @deal.quantity -= 1
           @deal.save!
-          format.html { redirect_to '/', notice: 'Congratulations.' }
+          format.html { redirect_to '/', notice: 'Congratulations, You have successfully purchased the deal.' }
         else
           format.html { redirect_to '/', notice: 'Sorry, Something went wrong' }
         end

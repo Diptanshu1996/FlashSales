@@ -1,24 +1,5 @@
-# README
+1. Admin can create new deals by jumping to /deals routes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2. Client need to login to see current available deal.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+3. Logged-in client will directly be redirected to /homepage to see current live deals.
